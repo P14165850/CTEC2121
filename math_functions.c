@@ -36,7 +36,7 @@ float max (float x, float y)
     return y;
 }
 
-float mod (float x, float y)
+int mod (int x, int y)
 {
 	return x % y; 
 }
@@ -44,7 +44,30 @@ float mod (float x, float y)
 int main()
 {
     float a, b, r;
-    char op;
+    char op, sel;
+    int i[5], j, highest, lowest; 
+    
+    printf("Do you wish to use calc or max/mid? (c/m)\n"); 
+    scanf(" %c", &sel);
+    if (sel == 'm') {
+    	    printf("Enter 5 integers: \n");
+    	    for (j=0; j<5; j++)
+    	    	    scanf(" %i", &i[j]); 
+    	    
+    	    highest = i[0];
+    	    lowest = i[0];
+    	    for (j=0; j<5; j++) {
+    	    	    if (i[j] > highest) {
+    	    	    	    highest = i[j]; 
+    	    	    }
+    	    	    if (i[j] < lowest) {
+    	    	    	    lowest = i[j]; 
+    	    	    }
+    	    }
+    	    printf("Highest is: %i and lowest is: %i.\n", highest, lowest); 
+    }
+ 
+    else 
     do {
        printf("number  op  number?  ");
        scanf(" %f %c %f", &a, &op, &b);
